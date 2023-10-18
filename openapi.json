@@ -1,0 +1,246 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Simple Documentation API",
+        "version": "1.0.11"
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    },
+    "servers": [
+        {
+            "url": "localhost:3000/api/v1"
+        }
+    ],
+    "tags" : [
+        {
+            "name" : "Auth",
+            "description" : "Find all about auth router here"
+        }
+    ],
+    "paths": {
+        "/auth/register" : {
+            "post": {
+                "tags" : ["Auth"],
+                "requestBody": {
+                    "content" : {
+                        "application/json" : {
+                            "schema" : {
+                                "type" : "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type" : "string"
+                                    },
+                                    "gender" : {
+                                        "type" : "string"
+                                    },
+                                    "phone" : {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "password": {
+                                                    "type": "string"
+                                                },
+                                                "profile": {
+                                                    "type": "object",
+                                                    "properties" : {
+                                                        "id": {
+                                                            "type": "number"
+                                                        },
+                                                        "name": {
+                                                            "type" : "string"
+                                                        },
+                                                        "gender" : {
+                                                            "type" : "string"
+                                                        },
+                                                        "phone" : {
+                                                            "type": "string"
+                                                        },
+                                                        "user_id": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/login" : {
+            "post": {
+                "tags" : ["Auth"],
+                "requestBody": {
+                    "content" : {
+                        "application/json" : {
+                            "schema" : {
+                                "type" : "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "token": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/profile" : {
+            "get": {
+                "tags" : ["Auth"],
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "password": {
+                                                    "type": "string"
+                                                },
+                                                "profile": {
+                                                    "type": "object",
+                                                    "properties" : {
+                                                        "id": {
+                                                            "type": "number"
+                                                        },
+                                                        "name": {
+                                                            "type" : "string"
+                                                        },
+                                                        "gender" : {
+                                                            "type" : "string"
+                                                        },
+                                                        "phone" : {
+                                                            "type": "string"
+                                                        },
+                                                        "user_id": {
+                                                            "type": "number"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/change-password" : {
+            "post": {
+                "tags" : ["Auth"],
+                "requestBody": {
+                    "content" : {
+                        "application/json" : {
+                            "schema" : {
+                                "type" : "object",
+                                "properties": {
+                                    "old_password": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses" : {
+                    "200" : {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "number"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                },
+                                                "password": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
