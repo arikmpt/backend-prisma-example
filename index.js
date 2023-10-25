@@ -10,6 +10,7 @@ require('dotenv').config()
 
 app.use(express.json({ strict : false}))
 app.use(cors())
+app.use('/images', express.static('public/images'))
 app.use('/api/v1', router)
 app.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerJson))
 // Handle 404 route
